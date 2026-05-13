@@ -1,6 +1,5 @@
 # Especificación de Diseño — Sistema "Huellas Seguras"
 **Protectora de Animales | Oracle Database + Oracle APEX**
-**Versión:** 1.0 | **Fecha:** Mayo 2026
 
 ---
 
@@ -21,7 +20,7 @@
 | `ESPECIE`       | VARCHAR2(50)  | NOT NULL                   | Especie (Perro, Gato, etc.)              |
 | `RAZA`          | VARCHAR2(100) | NULL                       | Raza del animal                          |
 | `FECHA_ENTRADA` | DATE          | NOT NULL, DEFAULT SYSDATE  | Fecha de llegada a la protectora         |
-| `ESTADO`        | VARCHAR2(20)  | NOT NULL, CHECK constraint | 'Disponible', 'En tratamiento', 'Adoptado' |
+| `ESTADO`        | VARCHAR2(20)  | NOT NULL, CHECK constraint | 'Disponible','En tratamiento','Adoptado' |
 
 **Constraint CHECK:** `ESTADO IN ('Disponible', 'En tratamiento', 'Adoptado')`
 
@@ -171,7 +170,7 @@ Se dispara **AFTER UPDATE** sobre la columna `ESTADO` de la tabla `ANIMALES`. Po
 ## 6. Consideraciones Técnicas
 
 - Todos los tipos de texto usan `VARCHAR2` (nunca `VARCHAR`) para compatibilidad con Oracle.
-- Las fechas usan tipo `DATE` de Oracle (incluye hora).
-- Las claves primarias se generan con secuencias + trigger `BEFORE INSERT` (compatible con Oracle 11g/12c+).
+- Las fechas usan tipo `DATE` de Oracle.
+- Las claves primarias se generan con secuencias + trigger `BEFORE INSERT`.
 - En Oracle 12c o superior se puede usar la cláusula `GENERATED ALWAYS AS IDENTITY`.
 - Los constraints se nombran explícitamente para facilitar el mantenimiento (ej. `PK_ANIMALES`, `FK_ADOPCION_ANIMAL`).
