@@ -1,15 +1,13 @@
 # Diario de IA — Sistema "Huellas Seguras"
 **Asignatura:** Programación de Bases de Datos. PL/SQL
-**Herramienta utilizada:** Claude (Anthropic) — claude.ai
-**Fecha:** Mayo 2026
+**Herramienta utilizada:** Claude (Anthropic)
 
 ---
 
 ## 1. Introducción
 
-Este documento recoge los prompts principales utilizados durante el desarrollo del proyecto, junto con una reflexión crítica sobre los resultados obtenidos, las correcciones aplicadas y las decisiones de diseño tomadas de forma autónoma.
-
-El uso de IA se ha empleado como herramienta de apoyo para acelerar la generación de código repetitivo y estructurar la documentación, pero en ningún caso como sustituto del razonamiento propio.
+Este documento recoge los prompts principales utilizados durante el desarrollo del proyecto.
+El uso de IA se ha empleado como herramienta de apoyo para acelerar la generación de código repetitivo y estructurar la documentación.
 
 ---
 
@@ -22,8 +20,6 @@ El uso de IA se ha empleado como herramienta de apoyo para acelerar la generaci�
 **Prompt enviado:**
 > "Genera la especificación de diseño en formato Markdown para un sistema de gestión de protectora de animales llamado 'Huellas Seguras'. Debe incluir diccionario de datos para las tablas ANIMALES, ADOPTANTES, ADOPCIONES, HISTORIAL_MEDICO y una tabla de auditoría. Incluye también la lógica de negocio y un mapa de navegación para Oracle APEX."
 
-**Respuesta obtenida:**
-La IA generó un documento Markdown estructurado con todas las tablas, tipos de datos, constraints y descripción de la lógica de negocio.
 
 **Correcciones y decisiones propias:**
 
@@ -37,9 +33,6 @@ La IA generó un documento Markdown estructurado con todas las tablas, tipos de 
 
 **Prompt enviado:**
 > "Genera el script DDL completo para Oracle Database con las tablas ANIMALES, ADOPTANTES, ADOPCIONES, HISTORIAL_MEDICO y AUDIT_ANIMALES. Usa secuencias para las claves primarias, triggers BEFORE INSERT para el autoincremento, constraints nombrados explícitamente (PK, FK, CHECK, UNIQUE) y un trigger de auditoría AFTER UPDATE sobre el campo ESTADO de ANIMALES."
-
-**Respuesta obtenida:**
-La IA generó los scripts con la estructura general correcta.
 
 **Correcciones y decisiones propias:**
 
@@ -56,8 +49,6 @@ La IA generó los scripts con la estructura general correcta.
 **Prompt enviado:**
 > "Crea el package PKG_PROTECTORA en Oracle PL/SQL con: una función FN_APTO_ADOPCION que devuelva BOOLEAN según el estado del animal, un procedimiento SP_ADOPTAR_ANIMAL que realice la adopción en una transacción atómica con COMMIT y ROLLBACK, un procedimiento SP_CAMBIAR_ESTADO y una función FN_CONTAR_POR_ESPECIE. Incluye la especificación y el cuerpo por separado."
 
-**Respuesta obtenida:**
-La IA generó una estructura de package funcional con los cuatro elementos solicitados.
 
 **Correcciones y decisiones propias:**
 
@@ -71,10 +62,6 @@ La IA generó una estructura de package funcional con los cuatro elementos solic
 
 ## 3. Reflexión General
 
-### Lo que la IA hizo bien
-- Generó rápidamente la estructura base de tablas, constraints y código PL/SQL, reduciendo el tiempo dedicado a código repetitivo.
-- La organización del documento Markdown fue clara y bien estructurada desde el primer intento.
-- Los ejemplos de uso comentados al final del script PL/SQL fueron una aportación útil de la IA.
 
 ### Errores recurrentes de la IA en Oracle
 | Error de la IA | Corrección aplicada |
@@ -89,5 +76,3 @@ La IA generó una estructura de package funcional con los cuatro elementos solic
 La IA es una herramienta útil para generar código base, pero no reemplaza el conocimiento del entorno específico. En Oracle, detalles como `VARCHAR2` vs `VARCHAR`, el comportamiento de los triggers o la visibilidad de los elementos de un package requieren criterio propio. Cada bloque de código fue revisado, comprendido y ajustado antes de incluirse en la entrega.
 
 ---
-
-*Documento elaborado como parte del entregable nº5 de la práctica "Huellas Seguras" — UD8 PL/SQL.*
